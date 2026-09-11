@@ -4,6 +4,7 @@
 Kish Karen Language Academy Official Website & User Interface
 
 ## تکنولوژی‌های استفاده‌شده
+
 - **Next.js 16 (App Router)**
 - **React 19**
 - **TypeScript**
@@ -19,6 +20,7 @@ Kish Karen Language Academy Official Website & User Interface
 pnpm install
 pnpm dev
 ```
+
 سپس مرورگر را باز کرده و به آدرس [http://localhost:3000](http://localhost:3000) مراجعه کنید.
 
 ## بیلد پروداکشن
