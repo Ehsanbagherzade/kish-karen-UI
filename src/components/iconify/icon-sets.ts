@@ -29,6 +29,9 @@ export const ICON_SETS = {
   "solar:arrow-right-linear": {
     body: '<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5l7 7l-7 7"/>',
   },
+  "solar:alt-arrow-down-linear": {
+    body: '<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/>',
+  },
   "solar:hamburger-menu-linear": {
     body: '<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>',
   },

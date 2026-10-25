@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" fill="none">
+  <g stroke="#DBEAFE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Conversation bubbles -->
+    <g transform="translate(48 42) rotate(-8 42 32)">
+      <path d="M12 4h58a12 12 0 0 1 12 12v30a12 12 0 0 1-12 12H34L18 72V58h-6A12 12 0 0 1 0 46V16A12 12 0 0 1 12 4Z"/>
+      <path d="M20 23h42M20 36h27"/>
+      <path d="M82 22h8a10 10 0 0 1 10 10v28a10 10 0 0 1-10 10h-4v12L73 70H52" opacity=".6"/>
+    </g>
+    <!-- Globe and orbit -->
+    <g transform="translate(320 48) rotate(12 40 40)">
+      <circle cx="40" cy="40" r="35"/>
+      <ellipse cx="40" cy="40" rx="16" ry="35"/>
+      <path d="M5 40h70M12 19c17 8 39 8 56 0M12 61c17-8 39-8 56 0"/>
+      <ellipse cx="40" cy="40" rx="54" ry="14" transform="rotate(-30 40 40)" opacity=".5"/>
+    </g>
+    <!-- Open notebook -->
+    <g transform="translate(184 182) rotate(-12 50 35)">
+      <path d="M50 13C34 2 18 1 2 5v58c16-4 32-3 48 8 16-11 32-12 48-8V5C82 1 66 2 50 13Z"/>
+      <path d="M50 13v58M12 20c10-1 20 1 28 5M12 33c10-1 20 1 28 5M12 46c10-1 20 1 28 5M60 25c8-4 18-6 28-5M60 38c8-4 18-6 28-5M60 51c8-4 18-6 28-5"/>
+    </g>
+    <!-- Learning path -->
+    <path d="M116 171c26-37 97-48 129-26 38 26 14 54 49 80 23 17 55 12 78-7" stroke-dasharray="3 9" opacity=".65"/>
+    <path d="m365 215 10-2-3 10" opacity=".65"/>
+    <!-- Small pencil -->
+    <g transform="translate(54 258) rotate(28 10 28)">
+      <path d="M4 8h12v42l-6 12-6-12V8ZM4 8V4a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v4M4 47h12M10 8v39"/>
+    </g>
+    <!-- Quiet geometric accents -->
+    <path d="M220 54v16M212 62h16M411 278v14M404 285h14" opacity=".75"/>
+    <circle cx="165" cy="115" r="3"/>
+    <circle cx="340" cy="312" r="4"/>
+    <circle cx="440" cy="158" r="2"/>
+    <path d="m128 316 5-9 5 9Z" opacity=".6"/>
+    <path d="M8 179c12-7 22-7 34 0M6 190c12-7 22-7 34 0" opacity=".5"/>
+  </g>
+</svg>

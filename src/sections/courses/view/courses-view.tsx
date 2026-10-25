@@ -1,58 +1,64 @@
-"use client";
-
-import Link from "next/link";
-
 import { AnimateIn } from "@/components/animate";
 import { Iconify } from "@/components/iconify";
+import { ButtonLink, Card, Container, Typography } from "@/components/ui";
 import { getContactRoute } from "@/utils/routes";
+
+import { CourseSeriesCard } from "../components/course-series-card";
+import { COURSE_SERIES } from "../data";
 
 export function CoursesView() {
   return (
-    <div className="container mx-auto max-w-2xl space-y-6 px-4 py-16 text-center sm:px-6 lg:px-8">
-      <AnimateIn yOffset={24} className="space-y-4">
-        <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold text-blue-600 dark:bg-blue-950/60 dark:text-blue-400">
-          <Iconify
-            icon="solar:book-bookmark-bold-duotone"
-            className="h-4 w-4"
-          />
-          <span>دوره‌های آموزشی کیش کارن</span>
-        </div>
-
-        <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
-          دوره‌های آموزشی آموزشگاه کیش کارن
-        </h1>
-
-        <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-          این صفحه در حال تکمیل و بارگذاری لیست تفصیلی تقویم ترم جدید، سطوح زبان
-          انگلیسی، آلمانی، فرانسوی و آزمون‌های بین‌المللی است.
-        </p>
-      </AnimateIn>
-
+    <Container
+      as="div"
+      size="xl"
+      className="space-y-10 py-10 sm:space-y-12 sm:py-14 lg:space-y-16 lg:py-16"
+    >
       <AnimateIn
-        yOffset={24}
-        delay={0.12}
-        className="space-y-2 rounded-2xl border border-zinc-200/80 bg-zinc-50/70 p-6 text-right dark:border-zinc-800 dark:bg-zinc-900/50"
+        yOffset={20}
+        className="mx-auto max-w-3xl space-y-3 text-center sm:space-y-4"
       >
-        <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-          نمونه سطوح و دوره‌های آتی:
-        </div>
-        <ul className="list-inside list-disc space-y-1 text-sm text-zinc-600 dark:text-zinc-400">
-          <li>دوره‌های مکالمه فشرده و نیمه‌فشرده بزرگسالان</li>
-          <li>کلاس‌های ویژه کودکان و نوجوانان (فونیکس و تاپ‌ناچ)</li>
-          <li>کارگاه‌های تخصصی آیلتس (IELTS Academic & General)</li>
-          <li>دوره‌های زبان آلمانی از A1 تا B2</li>
-        </ul>
+        <Typography
+          as="h1"
+          variant="h1"
+          className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl"
+        >
+          دوره‌های آموزشی آموزشگاه زبان کیش کارن
+        </Typography>
+        <Typography variant="lead" tone="muted">
+          مجموعه‌کتاب‌ها، سطح‌ها و برنامهٔ ترم‌های هر دوره را ببینید.
+        </Typography>
       </AnimateIn>
 
-      <AnimateIn yOffset={20} delay={0.2} className="pt-4">
-        <Link
+      <section
+        aria-label="مجموعه‌های آموزشی"
+        className="space-y-5 sm:space-y-7"
+      >
+        {COURSE_SERIES.map((series) => (
+          <CourseSeriesCard key={series.id} series={series} />
+        ))}
+      </section>
+
+      <Card
+        variant="muted"
+        className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-start"
+      >
+        <div className="space-y-1">
+          <Typography as="h2" variant="h3">
+            برای انتخاب سطح مناسب راهنمایی می‌خواهید؟
+          </Typography>
+          <Typography variant="caption" tone="muted">
+            برای تعیین سطح و اطلاع از زمان‌بندی دوره‌ها با ما در تماس باشید.
+          </Typography>
+        </div>
+        <ButtonLink
+          variant="primary"
+          size="responsive"
           href={getContactRoute()}
-          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/25 transition-all hover:bg-blue-700 active:scale-95"
         >
           <Iconify icon="solar:phone-bold-duotone" className="h-4 w-4" />
           <span>استعلام زمان‌بندی و ثبت‌نام در دوره‌ها</span>
-        </Link>
-      </AnimateIn>
-    </div>
+        </ButtonLink>
+      </Card>
+    </Container>
   );
 }

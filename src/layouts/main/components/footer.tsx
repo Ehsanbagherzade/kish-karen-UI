@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Iconify } from "@/components/iconify";
+import { ButtonLink, Container, Typography } from "@/components/ui";
+import { UserPanelMenu } from "@/components/user-panel-menu";
+import { cn } from "@/utils/cn";
 import {
   getAboutRoute,
   getContactRoute,
@@ -9,7 +12,6 @@ import {
   getGalleryRoute,
   getHomeRoute,
   getKarenSchoolRoute,
-  getLoginRoute,
 } from "@/utils/routes";
 
 const SOCIAL_LINKS = [
@@ -46,7 +48,7 @@ const SOCIAL_LINKS = [
 export function Footer() {
   return (
     <footer className="border-t border-zinc-200 bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
+      <Container as="div" size="xl" className="py-12">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* 1. Brand & Management & Socials (lg:col-span-4) */}
           <div className="space-y-4 lg:col-span-4">
@@ -70,10 +72,10 @@ export function Footer() {
               </div>
             </Link>
 
-            <p className="text-xs leading-relaxed font-medium text-zinc-600 sm:text-sm dark:text-zinc-300">
+            <Typography as="p" variant="caption" tone="muted">
               مراکز زبان کیش و کارن بجنورد و مدارس غیردولتی کارن با مدیریت دکتر
               مجتبی غلامیان
-            </p>
+            </Typography>
 
             {/* Social Media Access Links */}
             <div className="pt-2">
@@ -82,17 +84,23 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 {SOCIAL_LINKS.map((item) => (
-                  <a
+                  <ButtonLink
+                    variant="outline"
+                    size="responsive"
+                    iconOnly
                     key={item.name}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     title={item.name}
                     aria-label={item.name}
-                    className={`flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-600 shadow-sm transition-all duration-200 active:scale-95 sm:h-10 sm:w-10 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 ${item.hoverClass}`}
+                    className={cn(
+                      "text-zinc-600 dark:text-zinc-300",
+                      item.hoverClass
+                    )}
                   >
-                    <Iconify icon={item.icon} className="h-5 w-5" />
-                  </a>
+                    <Iconify icon={item.icon} />
+                  </ButtonLink>
                 ))}
               </div>
             </div>
@@ -100,9 +108,9 @@ export function Footer() {
 
           {/* 2. School & Features (lg:col-span-2) */}
           <div className="space-y-3 lg:col-span-2">
-            <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+            <Typography as="h3" variant="h3" tone="default">
               مدرسه و خدمات
-            </h3>
+            </Typography>
             <ul className="space-y-2.5 text-xs text-zinc-600 sm:text-sm dark:text-zinc-400">
               <li>
                 <Link
@@ -129,23 +137,16 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href={getLoginRoute()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-                >
-                  ورود به پنل کاربری
-                </a>
+                <UserPanelMenu variant="footer" placement="top" />
               </li>
             </ul>
           </div>
 
           {/* 3. Quick Links (lg:col-span-2) */}
           <div className="space-y-3 lg:col-span-2">
-            <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+            <Typography as="h3" variant="h3" tone="default">
               لینک‌های سریع
-            </h3>
+            </Typography>
             <ul className="space-y-2.5 text-xs text-zinc-600 sm:text-sm dark:text-zinc-400">
               <li>
                 <Link
@@ -176,9 +177,9 @@ export function Footer() {
 
           {/* 4. Contact Us (lg:col-span-4) */}
           <div className="space-y-3 lg:col-span-4">
-            <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+            <Typography as="h3" variant="h3" tone="default">
               تماس بگیرید
-            </h3>
+            </Typography>
             <ul className="space-y-2.5 text-xs text-zinc-600 sm:text-sm dark:text-zinc-300">
               <li className="flex items-center gap-2">
                 <Iconify
@@ -248,12 +249,12 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-zinc-200/80 pt-6 text-center dark:border-zinc-800/80">
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">
+          <Typography as="p" variant="caption" tone="subtle">
             © {new Date().getFullYear()} مراکز زبان کیش و کارن بجنورد و مدارس
             غیردولتی کارن با مدیریت دکتر مجتبی غلامیان. تمامی حقوق محفوظ است.
-          </p>
+          </Typography>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

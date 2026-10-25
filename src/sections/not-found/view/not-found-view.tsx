@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import { AnimateIn } from "@/components/animate";
 import { Iconify } from "@/components/iconify";
+import { ButtonLink, Typography } from "@/components/ui";
 import { getCoursesRoute, getHomeRoute } from "@/utils/routes";
 
 export function NotFoundView() {
@@ -26,36 +26,29 @@ export function NotFoundView() {
       </AnimateIn>
 
       <AnimateIn yOffset={24} delay={0.15} className="max-w-md space-y-3">
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-600 dark:bg-red-950/50 dark:text-red-400">
-          <Iconify icon="solar:close-circle-linear" className="h-4 w-4" />
-          <span>خطای ۴۰۴</span>
-        </div>
-
-        <h1 className="text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl dark:text-zinc-50">
+        <Typography as="h1" variant="h1" tone="default">
           صفحه مورد نظر یافت نشد!
-        </h1>
+        </Typography>
 
-        <p className="text-sm leading-relaxed text-zinc-600 sm:text-base dark:text-zinc-400">
+        <Typography as="p" variant="body" tone="muted">
           متأسفانه صفحه‌ای که به دنبال آن بودید پیدا نشد، ممکن است آدرس تغییر
           کرده باشد یا حذف شده باشد.
-        </p>
+        </Typography>
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
-          <Link
-            href={getHomeRoute()}
-            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/25 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/35 active:scale-95"
-          >
+          <ButtonLink variant="primary" size="responsive" href={getHomeRoute()}>
             <Iconify icon="solar:home-2-bold-duotone" className="h-4 w-4" />
             <span>بازگشت به صفحه اصلی</span>
-          </Link>
+          </ButtonLink>
 
-          <Link
+          <ButtonLink
+            variant="outline"
+            size="responsive"
             href={getCoursesRoute()}
-            className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-800 transition-all hover:bg-zinc-50 active:scale-95 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
           >
             <span>مشاهده دوره‌ها</span>
             <Iconify icon="solar:arrow-left-linear" className="h-4 w-4" />
-          </Link>
+          </ButtonLink>
         </div>
       </AnimateIn>
     </div>

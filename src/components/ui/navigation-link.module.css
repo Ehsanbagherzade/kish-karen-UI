@@ -1,0 +1,103 @@
+.link {
+  position: relative;
+  isolation: isolate;
+  border-radius: 0.75rem;
+  transition: color 250ms ease;
+}
+
+.link::before {
+  position: absolute;
+  z-index: -1;
+  inset: -0.5rem -0.25rem;
+  border-radius: inherit;
+  background: rgb(59 130 246 / 8%);
+  opacity: 0;
+  transform: scale(0.94);
+  transition:
+    opacity 280ms ease,
+    transform 280ms ease;
+  pointer-events: none;
+  content: "";
+}
+
+.label {
+  display: inline-flex;
+  gap: 0.28em;
+}
+
+.drawer::before {
+  inset: 0;
+}
+
+.word {
+  display: inline-block;
+}
+
+.link:focus-visible {
+  color: var(--color-primary);
+}
+
+.link:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.link:focus-visible .word {
+  animation: text-smoke 850ms ease-in-out both;
+  animation-delay: var(--smoke-delay, 0ms);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--color-primary);
+  }
+
+  .link:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .link:hover .word {
+    animation: text-smoke 850ms ease-in-out both;
+    animation-delay: var(--smoke-delay, 0ms);
+  }
+}
+
+@keyframes text-smoke {
+  0%,
+  12% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0, 0) scale(1);
+  }
+
+  42% {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate(var(--smoke-drift, 3px), -10px) scale(1.08);
+  }
+
+  43% {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translate(0, 5px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .link::before {
+    transition: none;
+  }
+
+  .link:focus-visible .word,
+  .link:hover .word {
+    animation: none;
+  }
+}

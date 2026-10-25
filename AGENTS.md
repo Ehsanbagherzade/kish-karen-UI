@@ -10,7 +10,7 @@
 
 ## Directory Architecture
 
-This describes the **intended** structure. Today only `src/app` and `src/utils` exist — create the other folders as features need them (keep this note current as the structure fills in). **Verify a path or component actually exists before importing it; the example paths below are illustrative, not a guarantee they are present.**
+The project currently has `src/app`, `src/sections`, `src/layouts`, `src/components`, `src/providers`, `src/theme`, and `src/utils`. Shared design primitives live in `src/components/ui`; `/Ehsan` documents their variants and responsive behavior. Create the remaining folders as features need them. **Verify a path or component actually exists before importing it; the example paths below are illustrative, not a guarantee they are present.**
 
 ```
 src/

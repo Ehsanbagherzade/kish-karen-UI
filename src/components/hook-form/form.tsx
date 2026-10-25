@@ -1,22 +1,28 @@
+"use client";
+
 import type { ReactNode } from "react";
-import type { FieldValues, UseFormReturn } from "react-hook-form";
+import type {
+  FieldValues,
+  SubmitHandler,
+  UseFormReturn,
+} from "react-hook-form";
 import { FormProvider } from "react-hook-form";
 
 interface FormProps<T extends FieldValues = FieldValues> {
   children: ReactNode;
   methods: UseFormReturn<T>;
-  onSubmit?: () => void | Promise<void>;
+  onSubmit?: SubmitHandler<T>;
   className?: string;
   id?: string;
 }
 
-export function Form({
+export function Form<T extends FieldValues>({
   children,
   methods,
   onSubmit,
   className,
   id,
-}: FormProps) {
+}: FormProps<T>) {
   return (
     <FormProvider {...methods}>
       <form
